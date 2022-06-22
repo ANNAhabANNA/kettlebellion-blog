@@ -149,6 +149,11 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Bugs
 
+-   During the early deployment an error occurred in the application and the webpage could not be served. The application logs showed error code H10. 
+    - This was solved by correcting a typing error in Heroku app name (ketllebelllion instead of ketllebellion).
+    - Further debugging also revealed wrong folder name in Procfile (kettlebellion-blog instead of kettlebellion).
+    - During the debugging DEBUG flag was changed to False caused by confusion, but changed to True again until the day of the production deployment.
+
 -   On some mobile devices the Hero Image pushes the size of screen out more than any of the other content on the page.
     -   A white gap can be seen to the right of the footer and navigation bar as a result.
 -   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
