@@ -154,8 +154,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     - Further debugging also revealed wrong folder name in Procfile (kettlebellion-blog instead of kettlebellion).
     - During the debugging DEBUG flag was changed to False caused by confusion, but changed to True again until the day of the production deployment.
 
--   On some mobile devices the Hero Image pushes the size of screen out more than any of the other content on the page.
-    -   A white gap can be seen to the right of the footer and navigation bar as a result.
+-   When creating my first view the website pages did not render and TemplateDoesNotExist at/ error was showing.
+    - This was solved by fixing the path in setting.py by changing  TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') to TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates/blog').
 -   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
 
 ## Deployment

@@ -24,7 +24,6 @@ class Post(models.Model):
     
     def number_of_likes(self):
         return self.likes.count()
-    
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
@@ -35,10 +34,13 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
+        """
+        Posts in descending order.
+        """
         ordering = ['created_on']
     
     def __str__(self):
+        """
+        Returns a string with comment and author.
+        """
         return f"Comment {self.body} by {self.name}"
-
-
-# Create your models here.

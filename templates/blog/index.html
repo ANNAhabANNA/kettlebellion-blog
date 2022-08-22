@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+<!-- Hero Image -->
+{% block header %}
+<header>
+    {% load static %}
+    <img class="img-fluid header-image" src="{% static 'media/site_imgs/hero-image.jpg' %}" alt="kettlebell athlete" width=100%>
+</header>
+{% endblock %}
+
+
+<!-- Main Content -->
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col offest-2">
+                <!-- Welcome message -->
+                <h2 class="text-center padding green-text mb-5 mt-5">Are you ready to experience KettleBellion?</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center text-md-left mb-3">
+        <div class="row text-center text-md-left g-3 card-row">
+
+            {% for post in post_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="{% static 'media/site_imgs/hero-image.jpg' %}">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                            </div>
+                            <a href="#" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </a>
+                            <hr />
+                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                                {{ post.number_of_likes }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="row mt-4">
+            {% if is_paginated %}
+            <nav aria-label="Page Pagination">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li>
+                        <a href="?page={{ page_obj.previous_page_number }}" class="page_link green-text">&laquo;
+                            PREV</a>
+                    </li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li>
+                        <a href="?page={{ page_obj.next_page_number }}" class="page_link green-text">NEXT &raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
