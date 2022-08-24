@@ -22,10 +22,11 @@
 
     <div class="container text-center text-md-left mb-3">
         <div class="row text-center text-md-left g-3 card-row">
-
+            <!-- Loop for the list of posts -->
             {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
+                        <!-- Post content-->
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
@@ -38,7 +39,7 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
@@ -48,12 +49,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- Posts display in rows of three-->
                 {% if forloop.counter|divisibleby:3 %}
         </div>
         <div class="row">
             {% endif %}
             {% endfor %}
         </div>
+        <!-- Built-in pagination functionality-->
         <div class="row mt-4">
             {% if is_paginated %}
             <nav aria-label="Page Pagination">
