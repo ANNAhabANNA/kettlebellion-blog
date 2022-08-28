@@ -4,6 +4,7 @@ bleach==5.0.0
 cffi==1.15.0
 charset-normalizer==2.0.12
 cloudinary==1.29.0
+crispy-bootstrap5==0.6
 cryptography==37.0.2
 debugpy==1.6.0
 distlib==0.3.4
