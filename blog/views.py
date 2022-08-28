@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
 from django.http import HttpResponseRedirect
+from .forms import CommentForm
 
 #Generic class-based view
 class PostList(generic.ListView):
@@ -31,6 +32,7 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "liked": liked
+                "liked": liked,
+                "comment_form": CommentForm()
             },
         )
