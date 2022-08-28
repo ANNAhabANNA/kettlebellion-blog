@@ -63,11 +63,11 @@
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="% url 'account_login' %}">Log In</a>
+                            href="{% url 'account_login' %}">Log In</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                            href="% url 'account_signup' %}">Register</a>
+                            href="{% url 'account_signup' %}">Register</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -93,12 +93,12 @@
             <div class="row text-center text-md-left">
 
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold green-text">KettleBellion</h5>
+                    <h5 class="mb-4">KettleBellion</h5>
                     <p>We created a community for kettlebell enthusiasts of all levels where everyone can share their favourite kettlebell routine.</p>
                 </div>
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold green-text">Our links</h5>
+                    <h5 class="text-uppercase mb-4">Our links</h5>
                     {% if user.is_authenticated %}
                     <p>
                         <a href="#" class="text-white" style="text-decoration: none;">Log Out</a>
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold green-text">Get In Touch</h5>
+                    <h5 class="text-uppercase mb-4">Get In Touch</h5>
                     
                     <p>
                         <i class="fas fa-envelope mr-3"></i> kettlebellion@gmail.com
@@ -133,7 +133,6 @@
             <hr class="mb-4">
 
             <div class="row align-items-center">
-                <p class="m-0 text-center text-white">Follow us:
                     <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com" class="btn-floating btn-sm text-white"
@@ -152,7 +151,6 @@
                         </li>
                     </ul>
                     <p> Copyright &copy;2022 KettleBellion</p>
-                </p> 
             </div>
         </div>
     </footer>
