@@ -14,3 +14,16 @@ body {
     height: 33vh;
     width: 100%;
 }
+
+.btn-likes {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-likes:hover,
+.btn-likes:active {
+    color: red;
+    background: transparent;
+    border: none;
+}
