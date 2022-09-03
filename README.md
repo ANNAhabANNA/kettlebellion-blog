@@ -156,7 +156,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 -   When creating my first view the website pages did not render and TemplateDoesNotExist at/ error was showing.
     - This was solved by fixing the path in setting.py by changing  TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') to TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates/blog').
--   On Microsoft Edge and Internet Explorer Browsers, all links in Navbar are pushed upwards when hovering over them.
+-   CSS file did not render for django-allauth login.html which was solved by installing ```pip install django-bootstrap5```.
 
 ## Deployment
 
