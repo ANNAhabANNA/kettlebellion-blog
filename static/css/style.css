@@ -1,5 +1,6 @@
 body {
     background-color: #F9FAFC;
+
 }
 
 .dark-bg {
@@ -16,7 +17,7 @@ body {
 }
 
 .btn-likes {
-    color: #E84610;
+    color: red;
     border: none;
     background: transparent;
 }
@@ -26,4 +27,9 @@ body {
     color: red;
     background: transparent;
     border: none;
+}
+
+.alert-box {
+    margin: 10px;
+    padding: 10px;
 }
