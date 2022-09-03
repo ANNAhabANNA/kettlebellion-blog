@@ -1,6 +1,5 @@
 body {
     background-color: #F9FAFC;
-
 }
 
 .dark-bg {
@@ -33,3 +32,8 @@ body {
     margin: 10px;
     padding: 10px;
 }
+
+.about-text {
+    color: black;
+}
+

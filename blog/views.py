@@ -4,6 +4,12 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
 
+def about(request):
+    """
+    Renders about.html 
+    """
+    return render(request, "about.html")
+
 #Generic class-based view
 class PostList(generic.ListView):
     """
@@ -86,3 +92,4 @@ class PostLike(View):
             post.likes.add(request.user)
         #Reloads post_detail.html to see the result
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    
