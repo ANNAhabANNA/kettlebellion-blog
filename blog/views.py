@@ -61,7 +61,8 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "workout_form": WorkoutForm(),
             },
         )
 
@@ -93,9 +94,39 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
             },
         )
+
+def edit_workout(request, slug):
+    """
+    Workout post edit view
+    """
+    post = get_object_or_404(Recipe, slug=slug)
+    workout_form = WorkoutForm(request.POST or None, instance=recipe)
+    context = {
+        "workout_form": workout_form,
+        "post": post
+    }
+    if request.method == "POST":
+        workout_form = WorkoutForm(request.POST, request.FILES, instance=recipe)
+        if workout_form.is_valid():
+            post = workout_form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('home')
+    else:
+        workout_form = WorkoutForm(instance=post)
+    return render(request, "edit_workout.html", context)
+
+
+def delete_workout(request, slug):
+    """
+    Workout post delete view
+    """
+    post = Post.objects.get(slug=slug)
+    post.delete()
+    return redirect('home')
 
 class PostLike(View):
 

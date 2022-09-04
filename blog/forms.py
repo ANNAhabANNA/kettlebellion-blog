@@ -1,6 +1,5 @@
 from .models import Comment, Post
 from django import forms
-from django_summernote.widgets import SummernoteInplaceWidget
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -9,7 +8,7 @@ class CommentForm(forms.ModelForm):
 
 class WorkoutForm(forms.ModelForm):
     """
-    Recipe Input Form
+    Workout Input Form
     """
     class Meta:
         """

@@ -5,18 +5,18 @@
 
 
 {% block title %}
-<title>Add Your Workout</title>
+<title>Edit Your Workout</title>
 {% endblock %}
 
 
 <!-- Navbar Active Link -->
-{% block active_add_workout %}
+{% block active_edit_workout %}
 active
 {% endblock %}
 
 
 <!-- aria-current Attribute for active nav link -->
-{% block aria_add_workout %}
+{% block aria_edit_workout %}
 aria-current="page" id="active-green"
 {% endblock %}
 
@@ -37,11 +37,11 @@ aria-current="page" id="active-green"
 
 {% block content %}
     {% if user.is_authenticated %}
-    <div class="container">
+    <div class="container text-light">
         <div class="row">
             <div class="col mt-3 mb-5">
-                <h1 class="text-center">Add A Workout</h1>
-                <form action="." method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+                <h1 class="text-center green-text">Edit Your Workout</h1>
+                <form action="?action=save" method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col">
                             {{ workout_form | crispy | safe }}
@@ -59,7 +59,7 @@ aria-current="page" id="active-green"
             <div class="col mt-3 mb-5 text-light text-center">
                 <h1 class="green-text mb-5">I'm sorry, you're not logged in!</h1>
                 <p>You will need to <a class="green-text" href="{% url 'account_login' %}">log in</a> or <a
-                        class="green-text" href="{% url 'account_signup' %}">register</a> an account with us and start sharing your workouts.</p>
+                        class="green-text" href="{% url 'account_signup' %}">register</a> an account to edit this workout.</p>
             </div>
         </div>
     </div>
