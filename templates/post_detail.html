@@ -21,6 +21,22 @@
         </div>
     </div>
 </div>
+<!-- Edit and Delete buttons for registered users-->
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left top">
+            <div class="card-body">
+            {% if user.id == post.author.id %}
+            <a href="{% url 'edit_workout' post.slug %}" class="edit"><button
+                    class="btn btn-signup btn-md green-btn" value="{{ post.slug }}"
+                    type="button">Edit</button></a>
+            <a href="{% url 'delete_workout' post.slug %}" class="delete"><button
+                    class="btn btn-danger btn-md mx-4" value="{{ post.slug }}" type="button">Delete</button></a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="container">

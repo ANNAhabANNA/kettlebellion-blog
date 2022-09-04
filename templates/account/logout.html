@@ -1,21 +1,46 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
+
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+<div class="masthead">
+  <div class="container">
+    <h3 class="mb-3 justify-content-center text-center">{% trans "KETTLEBELLION MEMBER LOGIN" %}</h3>
+      
+    <div class="d-md-block">
+      <img src="../../static/media/site_imgs/hero-image.jpg" width="100%">
+  </div>
+      </div>
+  </div>
+</div>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col mt-3 justify-content-center text-center">
 
 
+      <p class="mb-3">
+        Thank you for your time and interest in our community. Come back for more next time!
+      </p>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mt-3 mb-5 justify-content-center text-center">
+
+      <form class="logout" method="POST" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-success right" type="submit">{% trans "LOGOUT" %}</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

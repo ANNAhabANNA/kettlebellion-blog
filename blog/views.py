@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, WorkoutForm
+from django.contrib import messages
+
 
 def about(request):
     """
@@ -26,7 +28,11 @@ def add_workout(request):
             workout_form.author = request.user
             workout_form.status = 1
             workout_form.save()
+            messages.success(request, 'Your form submitted successfully and is awaiting moderation.')
             return redirect('home')
+        else:
+            messages.error(request, 'Invalid form submission. Please try again.')
+            return render(request, 'add_workout.html')
     else:
         workout_form = WorkoutForm()
     return render(request, 'add_workout.html', context)
@@ -102,11 +108,11 @@ def edit_workout(request, slug):
     """
     Workout post edit view
     """
-    post = get_object_or_404(Recipe, slug=slug)
-    workout_form = WorkoutForm(request.POST or None, instance=recipe)
+    post = get_object_or_404(Post, slug=slug)
+    workout_form = WorkoutForm(request.POST or None, instance=post)
     context = {
         "workout_form": workout_form,
-        "post": post
+        "post": post,
     }
     if request.method == "POST":
         workout_form = WorkoutForm(request.POST, request.FILES, instance=recipe)
