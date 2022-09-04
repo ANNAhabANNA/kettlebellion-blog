@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
+
+<!-- Page Title -->
+{% block title %}
+<title>KettleBellion - Home</title>
+{% endblock %}
+
+
+<!-- Navbar Active Link -->
+{% block active_home %}
+active
+{% endblock %}
+
+
+<!-- aria-current Attribute for active nav link -->
+{% block aria_home %}
+aria-current="page" id="active-green"
+{% endblock %}
+
 <!-- Hero Image -->
 {% block header %}
 <header>
@@ -43,16 +61,24 @@
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
+                       
                             </a>
                             {% endif %}
+                            <div class="card-text">
+                                <p class="card-text">Length: {{ post.workout_length }} min</span>
+                                <p class="card-text">Level {{ post.workout_level }}</span>
+                                <p class="card-text">Description: {{ post.content }}</span>
+                            </div>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
                         </div>
                     </div>
                 </div>
-                <!-- Posts display in rows of three-->
-                {% if forloop.counter|divisibleby:3 %}
+
+                
+            <!-- Posts display in rows of three-->
+            {% if forloop.counter|divisibleby:3 %}
         </div>
         <div class="row">
             {% endif %}

@@ -20,22 +20,21 @@ class WorkoutForm(forms.ModelForm):
             'title',
             'workout_level',
             'workout_length',
-            'additional_equipment',
-            'directions',
+            'content',
         ]
    
 
     def __init__(self, *args, **kwargs):
         super(WorkoutForm, self).__init__(*args, **kwargs)
 
-    def clean_servings(self):
+    def workout_length(self):
         """
-        Ensures servings is greater than zero
+        Ensures workout length is greater than zero
         """
-        value = self.cleaned_data.get("serves")
+        value = self.cleaned_data.get("length")
         print(value)
         if value < 1:
             raise forms.ValidationError(
-                "The number of servings must be greater than zero"
+                "The workout lenght must be greater than zero"
                 )
         return value

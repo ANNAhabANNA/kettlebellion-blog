@@ -19,10 +19,8 @@ class Post(models.Model):
     description = models.TextField(blank=True)
     workout_length = models.IntegerField(default=0)
     workout_level = models.CharField(max_length=200)
-    directions = models.TextField(blank=True)
+    directions = models.TextField()
     additional_equipment = models.CharField(max_length=200)
-
-
 
     class Meta:
         ordering = ['-created_on']
@@ -35,7 +33,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = self.title.replace
+            self.slug = self.title.replace(" ", '-')
         super().save(*args, **kwargs)
 
 class Comment(models.Model):
