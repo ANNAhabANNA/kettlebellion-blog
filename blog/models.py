@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.template.defaultfilters import slugify
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 
@@ -17,9 +18,9 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='blog_likes',blank=True)
     description = models.TextField(blank=True)
     workout_length = models.IntegerField(default=0)
-    workout_level = models.CharField(max_length=200, unique=True)
+    workout_level = models.CharField(max_length=200)
     directions = models.TextField(blank=True)
-    additional_equipment = models.CharField(max_length=200, unique=True)
+    additional_equipment = models.CharField(max_length=200)
 
 
 
@@ -31,6 +32,11 @@ class Post(models.Model):
     
     def number_of_likes(self):
         return self.likes.count()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.title.replace
+        super().save(*args, **kwargs)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
