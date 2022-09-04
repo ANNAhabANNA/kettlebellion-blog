@@ -15,6 +15,13 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blog_likes',blank=True)
+    description = models.TextField(blank=True)
+    workout_length = models.IntegerField(default=0)
+    workout_level = models.CharField(max_length=200, unique=True)
+    directions = models.TextField(blank=True)
+    additional_equipment = models.CharField(max_length=200, unique=True)
+
+
 
     class Meta:
         ordering = ['-created_on']

@@ -2,13 +2,34 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, WorkoutForm
 
 def about(request):
     """
     Renders about.html 
     """
     return render(request, "about.html")
+
+def add_workout(request):
+    """
+    Renders add_workout.html
+    """
+    workout_form = WorkoutForm(request.POST or None, request.FILES or None)
+    context = {
+        'workout_form': workout_form,
+    }
+
+    if request.method == "POST":
+        workout_form = WorkoutForm(request.POST, request.FILES)
+        if workout_form.is_valid():
+            workout_form = workout_form.save(commit=False)
+            workout_form.author = request.user
+            workout_form.status = 1
+            workout_form.save()
+            return redirect('home')
+    else:
+        workout_form = WorkoutForm()
+    return render(request, 'add_workout.html', context)
 
 #Generic class-based view
 class PostList(generic.ListView):
