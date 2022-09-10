@@ -34,6 +34,6 @@ class WorkoutForm(forms.ModelForm):
         print(value)
         if value < 1:
             raise forms.ValidationError(
-                "The workout lenght must be greater than zero"
+                "The workout length must be greater than zero"
                 )
         return value

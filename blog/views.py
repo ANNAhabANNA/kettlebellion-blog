@@ -16,7 +16,7 @@ def add_workout(request):
     """
     Renders add_workout.html
     """
-    workout_form = WorkoutForm(request.POST or None, request.FILES or None)
+    workout_form = WorkoutForm(request.POST or None, request.FILES or None)  
     context = {
         'workout_form': workout_form,
     }
@@ -26,16 +26,23 @@ def add_workout(request):
         if workout_form.is_valid():
             workout_form = workout_form.save(commit=False)
             workout_form.author = request.user
-            workout_form.status = 1
+            workout_form.status = 0
             workout_form.save()
             messages.success(request, 'Your form submitted successfully and is awaiting moderation.')
             return redirect('home')
         else:
             messages.error(request, 'Invalid form submission. Please try again.')
-            return render(request, 'add_workout.html')
+            return render(request, 'add_workout.html', context)
     else:
         workout_form = WorkoutForm()
     return render(request, 'add_workout.html', context)
+
+#def approve_workout(request):
+    q#ueryset = Post.objects.filter(is_approved=True)
+
+    #return render(request, 'home', {
+        #'queryset': queryset,
+    #})
 
 #Generic class-based view
 class PostList(generic.ListView):
@@ -120,6 +127,7 @@ def edit_workout(request, slug):
             post = workout_form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, 'You successfully updated your workout')
             return redirect('home')
     else:
         workout_form = WorkoutForm(instance=post)
@@ -132,6 +140,7 @@ def delete_workout(request, slug):
     """
     post = Post.objects.get(slug=slug)
     post.delete()
+    messages.success(request, 'You successfully deleted your workout')
     return redirect('home')
 
 class PostLike(View):

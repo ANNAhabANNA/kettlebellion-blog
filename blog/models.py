@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.template.defaultfilters import slugify
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -21,22 +21,57 @@ class Post(models.Model):
     workout_level = models.CharField(max_length=200)
     directions = models.TextField()
     additional_equipment = models.CharField(max_length=200)
+    is_approved = models.BooleanField(default=False)
 
     class Meta:
+        """
+        Workouts in descending order
+        """
         ordering = ['-created_on']
 
     def __str__(self):
+        """
+        Shows the title
+        """
         return self.title
     
     def number_of_likes(self):
+        """
+        Adds total of likes 
+        """
         return self.likes.count()
 
     def save(self, *args, **kwargs):
+        """
+        Saves form input
+        """
         if not self.slug:
             self.slug = self.title.replace(" ", '-')
         super().save(*args, **kwargs)
 
+    def allowed_to_edit(self, request,slug):
+        """
+        Authenticates for editing
+        """
+        if self.author:
+            return True
+        else:
+            return False
+
+    def allowed_to_delete(self, request, slug):
+        """
+        Authenticates for deletion
+        """       
+        if self.author:
+            return True
+        else:
+            return False
+
+
 class Comment(models.Model):
+    """
+    Comment class
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
@@ -46,7 +81,7 @@ class Comment(models.Model):
 
     class Meta:
         """
-        Posts in descending order.
+        Comments in ascending order.
         """
         ordering = ['created_on']
     
