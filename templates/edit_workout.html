@@ -41,14 +41,14 @@ aria-current="page" id="active-green"
         <div class="row">
             <div class="col mt-3 mb-5">
                 <h1 class="text-center green-text">Edit Your Workout</h1>
-                <form action="save" method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+                <form  method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col">
                             {{ workout_form | crispy | safe }}
                             {% csrf_token %}
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-signup btn-lg btn-success">Edit</button>
                 </form>
             </div>
         </div>

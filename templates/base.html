@@ -118,18 +118,18 @@
                     <h5 class="text-uppercase mb-4">Our links</h5>
                     {% if user.is_authenticated %}
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Log Out</a>
+                        <a href="{% url 'account_logout' %}" class="text-white" style="text-decoration: none;">Log Out</a>
                     </p>
                     {% else %}
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Log In</a>
+                        <a href="{% url 'account_login' %}" class="text-white" style="text-decoration: none;">Log In</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Register</a>
+                        <a href="{% url 'account_signup' %}" class="text-white" style="text-decoration: none;">Register</a>
                     </p>
                     {% endif %}
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Share A Workout</a>
+                        <a href="{% url 'add_workout' %}" class="text-white" style="text-decoration: none;">Share A Workout</a>
                     </p>
                 </div>
 
@@ -181,7 +181,7 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
         let messages = document.getElementById("auto-dismiss");
         let alert = new bootstrap.Alert(messages);
         alert.close();
-    }, 5000);
+    }, 2500);
 </script>
 </body>
 

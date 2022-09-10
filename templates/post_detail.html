@@ -28,10 +28,11 @@
             <div class="card-body">
             {% if user.id == post.author.id %}
             <a href="{% url 'edit_workout' post.slug %}" class="edit"><button
-                    class="btn btn-signup btn-md green-btn" value="{{ post.slug }}"
+                    class="btn btn-success btn-md mx-4" value="{{ post.slug }}"
                     type="button">Edit</button></a>
             <a href="{% url 'delete_workout' post.slug %}" class="delete"><button
-                    class="btn btn-danger btn-md mx-4" value="{{ post.slug }}" type="button">Delete</button></a>
+                    class="btn btn-danger btn-md mx-4" value="{{ post.slug }}" 
+                    type="button">Delete</button></a>
             {% endif %}
             </div>
         </div>

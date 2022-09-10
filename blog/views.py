@@ -115,7 +115,7 @@ def edit_workout(request, slug):
         "post": post,
     }
     if request.method == "POST":
-        workout_form = WorkoutForm(request.POST, request.FILES, instance=recipe)
+        workout_form = WorkoutForm(request.POST, request.FILES, instance=post)
         if workout_form.is_valid():
             post = workout_form.save(commit=False)
             post.author = request.user
