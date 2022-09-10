@@ -118,6 +118,9 @@
                     <h5 class="text-uppercase mb-4">Our links</h5>
                     {% if user.is_authenticated %}
                     <p>
+                        <a href="{% url 'add_workout' %}" class="text-white" style="text-decoration: none;">Share A Workout</a>
+                    </p>
+                    <p>
                         <a href="{% url 'account_logout' %}" class="text-white" style="text-decoration: none;">Log Out</a>
                     </p>
                     {% else %}
@@ -127,9 +130,7 @@
                     <p>
                         <a href="{% url 'account_signup' %}" class="text-white" style="text-decoration: none;">Register</a>
                     </p>
-                    <p>
-                        <a href="{% url 'add_workout' %}" class="text-white" style="text-decoration: none;">Share A Workout</a>
-                    </p>
+                    
                     {% endif %}
                 </div>
 
