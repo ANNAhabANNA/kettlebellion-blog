@@ -37,14 +37,6 @@ def add_workout(request):
         workout_form = WorkoutForm()
     return render(request, 'add_workout.html', context)
 
-#def approve_workout(request):
-    q#ueryset = Post.objects.filter(is_approved=True)
-
-    #return render(request, 'home', {
-        #'queryset': queryset,
-    #})
-
-#Generic class-based view
 class PostList(generic.ListView):
     """
     Creates the post list

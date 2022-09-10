@@ -16,11 +16,6 @@ class PostAdmin(SummernoteModelAdmin):
     def approve_workouts(self, request, queryset):
         queryset.update(status=1)
     
-    #def approve_workouts(self, request, queryset):
-        #queryset.update(is_approved = True)
-#@admin.action(description = 'Mark selected stories as published')
-#def make_published(modeladmin, request, queryset):
-    #queryset.update(status='p')
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

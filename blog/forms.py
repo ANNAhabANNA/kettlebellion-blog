@@ -1,15 +1,19 @@
 from .models import Comment, Post
 from django import forms
+from django_summernote.widgets import SummernoteInplaceWidget, SummernoteWidget
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('body',)
+    
 
 class WorkoutForm(forms.ModelForm):
     """
     Workout Input Form
     """
+
+    content = forms.CharField(widget=SummernoteWidget())
     class Meta:
         """
         Meta class
@@ -21,7 +25,11 @@ class WorkoutForm(forms.ModelForm):
             'workout_length',
             'content',
         ]
-   
+    
+        widgets = {
+            'content': SummernoteInplaceWidget(),
+        }
+    
 
     def __init__(self, *args, **kwargs):
         super(WorkoutForm, self).__init__(*args, **kwargs)
