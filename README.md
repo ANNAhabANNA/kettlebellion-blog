@@ -54,11 +54,11 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
 -    ### User Stories
 
-    -   #### Admin
+     #### Admin
 
         1. As an Admin I want to navigate the admin panel so that I can create, read, update and delete the content.
 
-    -   #### First Time Visitor
+    #### First Time Visitor
 
         1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the organisation.
 
@@ -66,7 +66,7 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
         3. As a First Time Visitor, I want to sign up for an account so that I can contribute to the community.
 
-    -   #### Registered Visitor
+    #### Registered Visitor
 
         1. As a Registered Visitor, I want to login/logout so that I can have the right create, edit and delete my posts.
 
@@ -76,31 +76,31 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
 -   ### Code Validation
 
-    -    #### W3C HTML Validation
+    #### W3C HTML Validation
 
-    -    #### W3C CSS Validation
+    #### W3C CSS Validation
 
-        ![Image](static/media/readme_imgs/CSS_validation.png)
+    ![Image](static/media/readme_imgs/CSS_validation.png)
 
-    -    #### PEP8 views.py
+    #### PEP8 views.py
 
-        ![Image](static/media/readme_imgs/pep8_views.png)
+    ![Image](static/media/readme_imgs/pep8_views.png)
 
-    -    #### PEP8 apps.py
+    #### PEP8 apps.py
 
-        ![Image](static/media/readme_imgs/pep8_apps.png)
+    ![Image](static/media/readme_imgs/pep8_apps.png)
 
-    -    #### PEP8 forms.py
+    #### PEP8 forms.py
 
-        ![Image](static/media/readme_imgs/pep8_forms.png)
+    ![Image](static/media/readme_imgs/pep8_forms.png)
 
-    -    #### PEP8 models.py
+    #### PEP8 models.py
 
-        ![Image](static/media/readme_imgs/pep8_models.png)
+    ![Image](static/media/readme_imgs/pep8_models.png)
 
-    -    #### PEP8 urls.py
+    #### PEP8 urls.py
 
-        ![Image](static/media/readme_imgs/pep8_urls.png)
+    ![Image](static/media/readme_imgs/pep8_urls.png)
 
 -   ### Manual Testing
 
