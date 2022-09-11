@@ -1,1 +1,1 @@
-web: gunicorn kettlebellion.wsgi
+web: gunicorn test-kettlebellion.wsgi
