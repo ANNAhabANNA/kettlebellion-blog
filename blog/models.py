@@ -15,7 +15,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blog_likes',blank=True)
+    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
     description = models.TextField(blank=True)
     workout_length = models.IntegerField(default=0)
     workout_level = models.CharField(max_length=200)
@@ -34,10 +34,10 @@ class Post(models.Model):
         Shows the title
         """
         return self.title
-    
+
     def number_of_likes(self):
         """
-        Adds total of likes 
+        Adds total of likes
         """
         return self.likes.count()
 
@@ -49,7 +49,7 @@ class Post(models.Model):
             self.slug = self.title.replace(" ", '-')
         super().save(*args, **kwargs)
 
-    def allowed_to_edit(self, request,slug):
+    def allowed_to_edit(self, request, slug):
         """
         Authenticates for editing
         """
@@ -61,7 +61,7 @@ class Post(models.Model):
     def allowed_to_delete(self, request, slug):
         """
         Authenticates for deletion
-        """       
+        """
         if self.author:
             return True
         else:
@@ -83,8 +83,8 @@ class Comment(models.Model):
         """
         Comments in ascending order.
         """
-        ordering = ['created_on']
-    
+    ordering = ['created_on']
+
     def __str__(self):
         """
         Returns a string with comment and author.

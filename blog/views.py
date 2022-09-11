@@ -8,15 +8,17 @@ from django.contrib import messages
 
 def about(request):
     """
-    Renders about.html 
+    Renders about.html
     """
     return render(request, "about.html")
 
+
 def add_workout(request):
+
     """
     Renders add_workout.html
     """
-    workout_form = WorkoutForm(request.POST or None, request.FILES or None)  
+    workout_form = WorkoutForm(request.POST or None, request.FILES or None)
     context = {
         'workout_form': workout_form,
     }
@@ -28,16 +30,18 @@ def add_workout(request):
             workout_form.author = request.user
             workout_form.status = 0
             workout_form.save()
-            messages.success(request, 'Your form submitted successfully and is awaiting moderation.')
+            messages.success(request, 'You workout awaiting approval.')
             return redirect('home')
         else:
-            messages.error(request, 'Invalid form submission. Please try again.')
+            messages.error(request, 'Invalid. Please try again.')
             return render(request, 'add_workout.html', context)
     else:
         workout_form = WorkoutForm()
     return render(request, 'add_workout.html', context)
 
+
 class PostList(generic.ListView):
+
     """
     Creates the post list
     """
@@ -45,6 +49,7 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
+
 
 class PostDetail(View):
     """
@@ -57,7 +62,7 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists:
             liked = True
-        
+
         return render(
             request,
             "post_detail.html",
@@ -78,8 +83,8 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists:
             liked = True
-        
-        #Variable for saving data from the crispy form
+
+        # Variable for saving data from the crispy form
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -102,6 +107,7 @@ class PostDetail(View):
                 "comment_form": CommentForm(),
             },
         )
+
 
 def edit_workout(request, slug):
     """
@@ -135,20 +141,19 @@ def delete_workout(request, slug):
     messages.success(request, 'You successfully deleted your workout')
     return redirect('home')
 
-class PostLike(View):
 
+class PostLike(View):
     """
     Creates the post like
     """
-    
+
     def post(self, request, slug, *args, **kwargs):
-        #Gets the relevant post
+        # Gets the relevant post
         post = get_object_or_404(Post, slug=slug)
-        #Checks if the is already liked
+        # Checks if the is already liked
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-        #Reloads post_detail.html to see the result
+        # Reloads post_detail.html to see the result
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-    

@@ -1,5 +1,6 @@
 body {
     background-color: #F9FAFC;
+    font-family: 'Goudy Bookletter', sans-serif;
 }
 
 .dark-bg {
@@ -23,7 +24,7 @@ body {
 
 .btn-likes:hover,
 .btn-likes:active {
-    color: red;
+    color: #FF8A8A;
     background: transparent;
     border: none;
 }
