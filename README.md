@@ -6,26 +6,6 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
 <h2 align="center"><img src=""></h2>
 
-## User Experience (UX)
-
--   ### User stories
-
-    -   #### First Time Visitor Goals
-
-        1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the organisation.
-        2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        3. As a First Time Visitor, I want to look for testimonials to understand what their users think of them and see if they are trusted. I also want to locate their social media links to see their followings on social media to determine how trusted and known they are.
-
-    -   #### Returning Visitor Goals
-
-        1. As a Returning Visitor, I want to find information about coding challenges.
-        2. As a Returning Visitor, I want to find the best way to get in contact with the organisation with any questions I may have.
-        3. As a Returning Visitor, I want to find community links.
-
-    -   #### Frequent User Goals
-        1. As a Frequent User, I want to check to see if there are any newly added challenges or hackathons.
-        2. As a Frequent User, I want to check to see if there are any new blog posts.
-        3. As a Frequent User, I want to sign up to the Newsletter so that I am emailed any major updates and/or changes to the website or organisation.
 
 -   ### Design
     -   #### Colour Scheme
@@ -43,42 +23,8 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
     -   Contact Us Page Wireframe - [View](https://github.com/)
 
-## Features
 
--   Responsive on all device sizes
-
--   Interactive elements
-
-
-
-### Languages Used
-
--   [HTML5](https://en.wikipedia.org/wiki/HTML5)
--   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-
-### Frameworks, Libraries & Programs Used
-
-1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
-    - Bootstrap was used to assist with the responsiveness and styling of the website.
-1. [Hover.css:](https://ianlunn.github.io/Hover/)
-    - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
-1. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
-1. [Font Awesome:](https://fontawesome.com/)
-    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-1. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
-1. [Git](https://git-scm.com/)
-    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-1. [GitHub:](https://github.com/)
-    - GitHub is used to store the projects code after being pushed from Git.
-1. [Photoshop:](https://www.adobe.com/ie/products/photoshop.html)
-    - Photoshop was used to create the logo, resizing images and editing photos for the website.
-1. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the [wireframes](https://github.com/) during the design process.
-
-
-### User Stories from User Experience (UX) Section
+### User Stories
 
 -   #### Admin/Superuser
 
@@ -100,8 +46,68 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
 ## Code Validation
 
+### W3C HTML Validation
 
-## Further Testing
+### Manual Testing
+
+-   Registration Form
+
+Message alert appears if password is too short or username is duplicated.
+
+![Image](static/media/readme_imgs/password_accountname.png)
+
+
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
+
+-   Login Form
+
+The username and password must be identical to the data used during registration of account.
+
+![image](static/media/readme_imgs/login_input.png)
+
+-   Admin Form
+
+The username and password must be identical to the data used during registration of account.
+
+![image](static/media/readme_imgs/admin_input.png)
+
+-   Admin Approval
+
+Admin can approve new workouts by selecting drafts and publishing them.
+
+![image](static/media/readme_imgs/admin_approve_draft.png)
+
+![image](static/media/readme_imgs/admin_approve_publish.png)
+
+Admin can appove new comments by using dropdown menu option.
+
+![image](static/media/readme_imgs/comments_approval1.png)
+
+![image](static/media/readme_imgs/comments_approval2.png)
+
+-   Confirmation Messages
+
+Upon user login/logout or workout/comment submission/update/deletion confirmation messages appear accordingly.
+
+![image](static/media/readme_imgs/login_success.png)
+
+![image](static/media/readme_imgs/logout_success.png)
+
+![image](static/media/readme_imgs/update_success.png)
+
+![image](static/media/readme_imgs/delete_success.png)
+
+![image](static/media/readme_imgs/comment_awaiting.png)
+
+
+-   Warning Messages
+
+New workout title must be unique, otherwise an alert message appears with an explanation on what caused the error.
+
+![image](static/media/readme_imgs/already_exists.png)
+
+
+### Further Testing
 
 -   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
 -   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
