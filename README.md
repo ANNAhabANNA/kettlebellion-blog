@@ -306,9 +306,9 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
     -    #### Content
 
-        -  The code for the admin panel is taken from Code hink Therefore I Blog.
+        The code for the admin panel is taken from Code hink Therefore I Blog.
 
-        - The code for post modification is taken from GitHub user IrishBecky91's project Student Rations.
+        The code for post modification is taken from GitHub user IrishBecky91's project Student Rations.
 
     -   #### Media
 
