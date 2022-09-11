@@ -58,7 +58,7 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
         1. As an Admin I want to navigate the admin panel so that I can create, read, update and delete the content.
 
-    #### First Time Visitor
+     #### First Time Visitor
 
         1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the organisation.
 
@@ -66,13 +66,13 @@ This is the website about kettlebell workouts. It is designed to bring kettlebel
 
         3. As a First Time Visitor, I want to sign up for an account so that I can contribute to the community.
 
-    #### Registered Visitor
+     #### Registered Visitor
 
         1. As a Registered Visitor, I want to login/logout so that I can have the right create, edit and delete my posts.
 
         2. As a Registered Visitor, I want to like other registered users' posts so that the most popular posts can get noticed.
 
-    <p align="right">(<a href="#table-of-content">back to top</a>)</p>
+     <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 -   ### Code Validation
 
