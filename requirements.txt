@@ -1,6 +1,6 @@
 asgiref==3.5.2
 astroid==2.11.6
-bleach==5.0.0
+bleach==6.2.0
 cffi==1.15.0
 charset-normalizer==2.0.12
 cloudinary==1.29.0
@@ -27,6 +27,7 @@ keyring==23.6.0
 mypy==0.961
 nbclient==0.6.4
 oauthlib==3.2.0
+pip==24.0.3
 pipenv==2022.6.7
 prompt-toolkit==3.0.29
 psycopg2==2.9.3
